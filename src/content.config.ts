@@ -28,6 +28,8 @@ const lessons = defineCollection({
     keywords: z.array(z.string()).default([]),
     deck: z.string().url().optional(),
     codebashTopic: z.string().optional(),
+    /** Names of the matching CodeBash tasks in this year's "Python at Home" topic. */
+    codebashTasks: z.array(z.string()).default([]),
     /** What Yoka says in the Year 7 header. */
     yokaSays: z.string().optional(),
     videos: z.record(videoSlot).default({}),

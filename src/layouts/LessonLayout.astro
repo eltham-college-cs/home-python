@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Yoka from '../components/Yoka.astro';
+import CodeBashPractice from '../components/CodeBashPractice.astro';
 import type { Lesson } from '../lib/lessons';
 import { lessonUrl } from '../lib/lessons';
 import { url } from '../lib/url';
@@ -51,6 +52,7 @@ const d = entry.data;
 
   <article class="lesson-body">
     <slot />
+    {d.codebashTasks.length > 0 && <CodeBashPractice year={d.year} tasks={d.codebashTasks} />}
   </article>
 
   <nav class="pager" aria-label="More lessons">

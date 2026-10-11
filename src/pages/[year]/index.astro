@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLessons, lessonUrl } from '../../lib/lessons';
 import { url } from '../../lib/url';
+import CodeBashPractice from '../../components/CodeBashPractice.astro';
 
 export async function getStaticPaths() {
   const years = await getCollection('years');
@@ -25,6 +26,8 @@ const lessons = await getLessons(info.year);
       </p>
     </div>
   </section>
+
+  <CodeBashPractice year={info.year} />
 
   {
     info.units.map((u, ui) => {
