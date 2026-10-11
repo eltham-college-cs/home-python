@@ -551,8 +551,12 @@ pre {
   border-bottom: 2px solid var(--border);
 }
 
-/* Static code blocks in lesson text */
-.lesson-body pre,
+/* Static code blocks in lesson text.
+   Exclude the code editor's highlight layer (.editor-hl): it must mirror the
+   overlaid <textarea> exactly, so it owns its own padding/overflow. Letting
+   this rule's padding apply here shifts the highlighted text away from the
+   caret (see PyChecker.astro). */
+.lesson-body pre:not(.editor-hl),
 pre.code {
   margin: 0;
   background: var(--navy);
