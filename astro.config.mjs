@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import rehypePython from './src/lib/rehype-python.ts';
+import rehypeExternalLinks from './src/lib/rehype-external-links.ts';
 import videoCheck from './src/lib/video-check.ts';
 
 export default defineConfig({
@@ -11,7 +12,7 @@ export default defineConfig({
   integrations: [mdx(), videoCheck()],
   markdown: {
     syntaxHighlight: false,
-    rehypePlugins: [rehypePython],
+    rehypePlugins: [rehypePython, rehypeExternalLinks],
   },
   build: { format: 'directory' },
 });

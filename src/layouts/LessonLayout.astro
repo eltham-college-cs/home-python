@@ -36,7 +36,13 @@ const d = entry.data;
       </nav>
       <div class="hero-links">
         <a href={url(`/year-${d.year}/`)}>All Year {d.year} lessons</a>
-        {d.deck && <a href={d.deck} rel="noopener">Lesson slides</a>}
+        {
+          d.deck && (
+            <a href={d.deck} target="_blank" rel="noopener noreferrer">
+              Lesson slides<span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          )
+        }
         {d.codebashTopic && <span class="muted">CodeBash: {d.codebashTopic}</span>}
       </div>
     </div>
